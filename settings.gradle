@@ -10,8 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
+        }
     }
-}
 rootProject.name = "AndroidB_HW2"
 include ':app'
 include ':MusicUploader'
