@@ -12,17 +12,17 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MusicUploader{
-    private MusicUploadApi musicUploadApi;
 
-    public class MusicUploaderConfig {
+
+    public class MusicUploader implements MusicUploadListener{
+        private MusicUploadApi musicUploadApi;
         public static final String BASE_URL = "http://example.com/api/";
-    }
+
 
 
     public MusicUploader() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(MusicUploaderConfig.BASE_URL)
+                .baseUrl(MusicUploader.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -41,4 +41,24 @@ public class MusicUploader{
         Call<ResponseBody> call = musicUploadApi.uploadMusic(filePart);
         call.enqueue(callback);
     }
-}
+
+        @Override
+        public void onUploadStarted() {
+
+        }
+
+        @Override
+        public void onUploadProgress(int progress) {
+
+        }
+
+        @Override
+        public void onUploadCompleted(String response) {
+
+        }
+
+        @Override
+        public void onUploadError(String errorMessage) {
+
+        }
+    }
